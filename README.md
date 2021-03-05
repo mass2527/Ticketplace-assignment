@@ -4,7 +4,8 @@
 
 ### 어떻게 사용하나요? 📄
 
-1. 다음 [링크](https://mass2527.github.io/Ticketplace-assignment/)를 클릭해서 접속해 주세요.
+1. 다음 <a href="https://mass2527.github.io/Ticketplace-assignment/" target="blank_">링크</a>를 클릭해서 접속해 주세요.
+
 2. 1글자 이상의 검색어를 입력해 주세요. (영어 소문자, 대문자 또는 숫자)
 
 3. Search 버튼을 누르거나 엔터키를 눌러주세요.
