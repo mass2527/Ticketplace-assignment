@@ -1,46 +1,192 @@
-# Getting Started with Create React App
+### [OMDB API](http://www.omdbapi.com/) 를 이용한 검색 어플리케이션
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
 
-## Available Scripts
+#### 어떻게 이용하나요?
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+1. 다음 [링크]()를 클릭해서 접속해 주세요.
+2. 1글자 이상의 검색어를 입력해 주세요. (영어 소문자, 대문자 또는 숫자)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+3. Search 버튼을 누르거나 엔터키를 눌러주세요.
+   (검색 결과가 너무 많은 경우 데이터를 불러올 수 없으므로 정확한 키워드를 입력 해주세요)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+4. 해당 키워드를 가진 영화, 시리즈 혹은 게임의 정보를 제목, 포스터, 타입, 연도 순으로 확인할 수 있습니다.
 
-### `npm test`
+<br/>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 어떻게 테스트하나요?
 
-### `npm run build`
+1. 우선 avengers라는 키워드로 검색을 해보세요 데이터를 불러오는 동안 loading이라는 메시지를 받게 되고 데이터를 받아온 즉시 해당 키워드를 가진 포스터들을 확인해 볼 수 있어요.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. 이번엔 aven이라는 키워드를 한 번 입력해보세요. 포스터 이미지를 제공하지 않는 데이터는 제가 We're preparing poster image...라는 메시지가 써진 이미지로 대체하였습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. a라는 키워드로 검색을 해보시면 해당 검색 결과가 너무 많아 Too many results라는 메시지를 받게 돼요.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. 브라우저상에서 F12키를 눌러 Network 텝을 선택한 후 상태를 Online에서 Slow 3G로 변경한 후 새로 고침을 해보세요. 인터넷 속도가 느린 유저가 포스터 이미지가 로드되는 동안 예쁜 파란색 배경을 볼 수 있도록 해두었어요.
 
-### `npm run eject`
+<br/>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### less와 CSS의 차이??
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<br/>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. CSS에서도 변수를 만들어서 사용할 수 있지만 매우 제한적입니다. less에서는 selector, property 등 다양한 값을 변수로 만들어 사용할 수 있습니다.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+less
 
-## Learn More
+```
+@main-color:#4361ff;
+@my-selector: banner;
+@property: color;
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+.@{my-selector}{
+  background-color:@main-color;
+  @{property}: #0ee;
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+CSS
+
+```
+:root{
+  --main-color:#4361ff;
+}
+
+.banner{
+  background-color:var(--main-color);
+}
+
+```
+
+<br/>
+
+2. CSS와는 다르게 less를 사용하면 한 선택자를 다른 선택자 안에 포함시키는 것이 가능합니다. 이를 활용하여 중복을 없앨수 있고 이해하기 쉽게 스타일링을 할 수 있습니다.
+
+less
+
+```
+nav {
+      background: @basecolor;
+      border:@Border;
+      border-radius: 5px;
+      height:40px;
+
+      ul {
+          list-style:none;
+
+          li {
+              display: inline;
+              float: left;
+              position: relative;
+          }
+      }
+}
+
+```
+
+css
+
+```
+nav {
+  background: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  height: 40px;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline;
+  float: left;
+  position: relative;
+
+```
+
+3. CSS를 사용하다 보면 중복된 스타일링 코드를 여러 차례 반복하는 걸 느낄 수 있습니다. less에서는 믹스인이라는 기능을 활용하여 중복을 최소화하고 빠르게 스타일링할 수 있습니다.
+
+less
+
+```
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu a {
+  color: #111;
+  .center;
+}
+
+.post a {
+  color: red;
+  .center;
+}
+
+
+```
+
+css
+
+```
+#menu a {
+  color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.post a {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+```
+
+4. less에서는 css에서는 존재하지 않는 다양한 내장함수를 제공합니다. 특수한 경우에 조건문, 반복문 등을 활용하여 스타링을 할 수 있습니다.
+
+less
+
+```
+@some: foo;
+
+div {
+    margin: if((2 > 1), 0, 3px);
+    color:  if((iscolor(@some)), @some, black);
+}
+
+@set: {
+  one: blue;
+  two: green;
+  three: red;
+}
+
+.set {
+  each(@set, {
+    @{key}-@{index}: @value;
+  });
+}
+
+```
+
+css
+
+```
+div {
+    margin: 0;
+    color:  black;
+}
+
+.set {
+  one-1: blue;
+  two-2: green;
+  three-3: red;
+}
+```
