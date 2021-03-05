@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Ticketplace-assignment/static/css/main.53203ed7.chunk.css",
+    "main.js": "/Ticketplace-assignment/static/js/main.45414dcf.chunk.js",
+    "main.js.map": "/Ticketplace-assignment/static/js/main.45414dcf.chunk.js.map",
+    "runtime-main.js": "/Ticketplace-assignment/static/js/runtime-main.bf61cb41.js",
+    "runtime-main.js.map": "/Ticketplace-assignment/static/js/runtime-main.bf61cb41.js.map",
+    "static/js/2.b06983a5.chunk.js": "/Ticketplace-assignment/static/js/2.b06983a5.chunk.js",
+    "static/js/2.b06983a5.chunk.js.map": "/Ticketplace-assignment/static/js/2.b06983a5.chunk.js.map",
+    "static/js/3.b8c9f0f6.chunk.js": "/Ticketplace-assignment/static/js/3.b8c9f0f6.chunk.js",
+    "static/js/3.b8c9f0f6.chunk.js.map": "/Ticketplace-assignment/static/js/3.b8c9f0f6.chunk.js.map",
+    "index.html": "/Ticketplace-assignment/index.html",
+    "static/css/main.53203ed7.chunk.css.map": "/Ticketplace-assignment/static/css/main.53203ed7.chunk.css.map",
+    "static/js/2.b06983a5.chunk.js.LICENSE.txt": "/Ticketplace-assignment/static/js/2.b06983a5.chunk.js.LICENSE.txt",
+    "static/media/default_img.7c957867.png": "/Ticketplace-assignment/static/media/default_img.7c957867.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.bf61cb41.js",
+    "static/js/2.b06983a5.chunk.js",
+    "static/css/main.53203ed7.chunk.css",
+    "static/js/main.45414dcf.chunk.js"
+  ]
+}
